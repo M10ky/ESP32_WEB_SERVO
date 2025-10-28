@@ -1,0 +1,113 @@
+/* --- Global --- */
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(135deg, #0e1b2b, #04212f);
+  color: #fff;
+  text-align: center;
+}
+
+header {
+  padding: 40px 20px 20px 20px;
+}
+
+h1 {
+  color: #00ffb3;
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+}
+
+.subtitle {
+  color: #a0f0d5;
+  font-size: 1.1rem;
+}
+
+/* --- Container --- */
+main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 50vh;
+}
+
+.container {
+  background: rgba(0, 0, 0, 0.4);
+  padding: 40px 60px;
+  border-radius: 20px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6);
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  align-items: center;
+}
+
+/* --- Servo Animation --- */
+.servo-animation {
+  width: 150px;
+  height: 150px;
+  background: #0e1b2b;
+  border: 3px solid #00ffb3;
+  border-radius: 50%;
+  position: relative;
+  margin-bottom: 20px;
+}
+
+#servoArm {
+  width: 6px;
+  height: 70px;
+  background: #ffb84c;
+  position: absolute;
+  bottom: 50%;
+  left: 50%;
+  transform-origin: bottom center;
+  transform: rotate(0deg);
+  transition: transform 0.5s ease-in-out;
+}
+
+/* --- Boutons --- */
+.btn {
+  padding: 14px 30px;
+  font-size: 1.2rem;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: 0.3s;
+  font-weight: bold;
+}
+
+.btn-open {
+  background: #00ffb3;
+  color: #0e1b2b;
+}
+
+.btn-open:hover {
+  background: #04c793;
+}
+
+.btn-close {
+  background: #ff4c4c;
+  color: #fff;
+}
+
+.btn-close:hover {
+  background: #ff1a1a;
+}
+
+/* --- Statut --- */
+#status {
+  font-size: 1.3rem;
+  margin-top: 20px;
+  font-weight: bold;
+  color: #f0f0f0;
+}
+
+/* --- Footer --- */
+footer {
+  padding: 20px;
+  background: rgba(0, 0, 0, 0.5);
+  font-size: 0.9rem;
+  color: #a0a0a0;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
