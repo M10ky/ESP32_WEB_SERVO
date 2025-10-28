@@ -3,39 +3,36 @@ const btnOpen = document.getElementById("open");
 const btnClose = document.getElementById("close");
 const servoArm = document.getElementById("servoArm");
 
-// Fonction pour envoyer une commande à l’ESP32
 function sendCommand(cmd) {
   fetch(`/${cmd}`)
     .then(response => response.text())
     .then(result => {
       if (result === "OPENED") {
-        statusText.textContent = "Statut : Barrière ouverte ✅";
-        servoArm.style.transform = "rotate(90deg)"; // animation
+        statusText.innerHTML = '<span class="status-indicator open"></span>Statut : Barrière ouverte ✅';
+        servoArm.style.transform = "translateX(-50%) rotate(90deg)";
       } else if (result === "CLOSED") {
-        statusText.textContent = "Statut : Barrière fermée ⛔";
-        servoArm.style.transform = "rotate(0deg)"; // animation
+        statusText.innerHTML = '<span class="status-indicator closed"></span>Statut : Barrière fermée ⛔';
+        servoArm.style.transform = "translateX(-50%) rotate(0deg)";
       }
     })
-    .catch(err => {
-      statusText.textContent = "Erreur de communication ❌";
+    .catch(() => {
+      statusText.innerHTML = '<span class="status-indicator"></span>Erreur de communication ❌';
     });
 }
 
-// Actions des boutons
 btnOpen.addEventListener("click", () => sendCommand("open"));
 btnClose.addEventListener("click", () => sendCommand("close"));
 
-// Vérification du statut toutes les 5 secondes
 setInterval(() => {
   fetch("/status")
     .then(res => res.text())
     .then(state => {
       if (state === "OPEN") {
-        statusText.textContent = "Statut : Barrière ouverte ✅";
-        servoArm.style.transform = "rotate(90deg)";
+        statusText.innerHTML = '<span class="status-indicator open"></span>Statut : Barrière ouverte ✅';
+        servoArm.style.transform = "translateX(-50%) rotate(90deg)";
       } else {
-        statusText.textContent = "Statut : Barrière fermée ⛔";
-        servoArm.style.transform = "rotate(0deg)";
+        statusText.innerHTML = '<span class="status-indicator closed"></span>Statut : Barrière fermée ⛔';
+        servoArm.style.transform = "translateX(-50%) rotate(0deg)";
       }
     });
 }, 5000);
