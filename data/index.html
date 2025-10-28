@@ -8,7 +8,7 @@
 </head>
 <body>
   <header>
-    <h1>🌐 Contrôle Portail a distance</h1>
+    <h1>🌐 Contrôle Portail à distance</h1>
     <p class="subtitle">Gérez votre barrière en temps réel depuis votre navigateur</p>
   </header>
 
@@ -17,9 +17,18 @@
       <div class="servo-animation">
         <div id="servoArm"></div>
       </div>
-      <button id="open" class="btn btn-open">Ouvrir</button>
-      <button id="close" class="btn btn-close">Fermer</button>
-      <p id="status">Statut : Inconnu</p>
+      
+      <div class="button-group">
+        <button id="open" class="btn btn-open">Ouvrir</button>
+        <button id="close" class="btn btn-close">Fermer</button>
+      </div>
+      
+      <div class="status-container">
+        <p id="status">
+          <span class="status-indicator"></span>
+          Statut : Inconnu
+        </p>
+      </div>
     </div>
   </main>
 
